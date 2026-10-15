@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Змейка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+        h2 { margin: 0 0 5px 0; color: #333; }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
+        }
+        .stats b { color: #333; }
+        canvas {
+            background: #111;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            touch-action: none;
+        }
+        .controls {
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            max-width: 220px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .controls button {
+            padding: 12px 0;
+            font-size: 18px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .controls button:hover { background: #0056b3; }
+        .controls .empty { visibility: hidden; }
+        .actions { margin-top: 15px; }
+        .actions button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            background: #6f42c1;
+        }
+        .actions button:hover { background: #59339b; }
+        .msg {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+            min-height: 18px;
+        }
+        .switch-link {
+            margin-top: 15px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .switch-link a { color: #007bff; text-decoration: none; }
+        .switch-link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>🐍 Змейка</h2>
+        <div class="stats">
+            <span>Игрок: <b>{{ name }}</b></span>
+            <span>Яблок: <b id="score">0</b></span>
+        </div>
+
+        <canvas id="snake_canvas" width="380" height="380"></canvas>
+
+        <div class="controls">
+            <button class="empty"></button>
+            <button data-dir="up">▲</button>
+            <button class="empty"></button>
+            <button data-dir="left">◀</button>
+            <button data-dir="down">▼</button>
+            <button data-dir="right">▶</button>
+        </div>
+
+        <div class="actions">
+            <button id="snake_start">Старт / Заново</button>
+        </div>
+
+        <div class="msg" id="snake_msg"></div>
+
+        <div class="switch-link">
+            <a href="/ai_chat">🤖 AI</a>
+            <a href="/balance">💰 Баланс</a>
+            <a href="/logout">Выйти</a>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/static/script.js"></script>
+</html>

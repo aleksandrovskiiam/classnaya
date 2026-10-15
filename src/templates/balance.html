@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Баланс</title>
     <style>
-        /* Те же стили, что и на странице входа */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
@@ -14,33 +13,27 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 20px;
         }
-
         .card {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 350px;
+            max-width: 380px;
         }
-
         .card h2 {
             text-align: center;
             margin-bottom: 20px;
             color: #333;
         }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
+        .form-group { margin-bottom: 15px; }
         .form-group label {
             display: block;
             margin-bottom: 5px;
             color: #666;
         }
-
         .form-group input {
             width: 100%;
             padding: 10px;
@@ -48,7 +41,6 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-
         button {
             width: 100%;
             padding: 10px;
@@ -60,16 +52,18 @@
             font-size: 16px;
             transition: background 0.3s;
         }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
+        button:hover { background-color: #0056b3; }
         .switch-link {
             text-align: center;
             margin-top: 15px;
             font-size: 14px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 8px;
         }
+        .switch-link a { color: #007bff; text-decoration: none; }
+        .switch-link a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -85,11 +79,15 @@
             <button type="submit">Пополнить</button>
         </form>
         <div class="switch-link">
+            <a href="/ai_chat">🤖 AI-помощник</a>
+            <a href="/snake">🐍 Змейка</a>
             <a href="/logout">Выйти</a>
         </div>
     </div>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../static/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/static/script.js"></script>
 </html>

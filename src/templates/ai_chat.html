@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-помощник</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+        .card h2 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 20px;
+        }
+        .card .sub {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        .chat-log {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            background: #fafafa;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .msg {
+            padding: 8px 12px;
+            border-radius: 12px;
+            max-width: 80%;
+            font-size: 14px;
+            line-height: 1.35;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .msg.user {
+            background: #007bff;
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+        .msg.assistant {
+            background: #ececec;
+            color: #222;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+        .input-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .input-row input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .input-row button {
+            padding: 10px 16px;
+            background-color: #6f42c1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .input-row button:hover { background-color: #59339b; }
+        .input-row button:disabled {
+            background-color: #bbb;
+            cursor: not-allowed;
+        }
+        .links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 13px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .links a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>🤖 AI-помощник</h2>
+        <div class="sub">Привет, {{ name }}! Баланс: <b id="balance">{{ balance }}</b></div>
+
+        <div class="chat-log" id="chat_log">
+            <div class="msg assistant">Привет! Спроси меня, сколько пополнить или что-то ещё.</div>
+        </div>
+
+        <form class="input-row" id="ai_form">
+            <input type="text" id="ai_prompt" placeholder="Ваш вопрос..." autocomplete="off" required>
+            <button type="submit" id="ai_send">Отправить</button>
+        </form>
+
+        <div class="links">
+            <a href="/balance">💰 Баланс</a>
+            <a href="/snake">🐍 Змейка</a>
+            <a href="/logout">Выйти</a>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/static/script.js"></script>
+</html>
